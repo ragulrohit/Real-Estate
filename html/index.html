@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hearth & Key Realty</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 11 9-7 9 7"></path><path d="M5 10v10h14V10"></path><path d="M9 20v-6h6v6"></path></svg></span>Real Estate</a>
+      <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg><svg class="close-icon" viewBox="0 0 24 24" hidden><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+      <div class="nav-menu">
+        <nav class="nav-links"><a class="active" href="index.html">Home</a><a href="listings.html">Listings</a><a href="services.html">Services</a><a href="neighborhoods.html">Neighborhoods</a><a href="agents.html">Agents</a></nav>
+        <div class="nav-actions"><a class="ghost" href="login.html">Sign in</a><a class="primary" href="index.html#valuation">Get valuation</a></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" style="--hero-image: url('../assets/hero-home.webp');">
+        <div class="hero-inner">
+          <span class="eyebrow">Curated homes, clear decisions</span>
+          <h1>Find the address that feels like a future.</h1>
+          <p class="hero-copy">Explore refined homes, market-aware pricing, and neighborhood intelligence built for buyers, sellers, and investors who want calm guidance from first search to closing day.</p>
+          <form class="search-panel">
+            <div class="field"><label for="location">Location</label><input id="location" type="search" placeholder="City, neighborhood, or ZIP" /></div>
+            <div class="field"><label for="type">Property type</label><select id="type"><option>Any home</option><option>Single family</option><option>Condo</option><option>Townhouse</option><option>Luxury estate</option></select></div>
+            <div class="field"><label for="budget">Budget</label><select id="budget"><option>Any price</option><option>$400 - $700</option><option>$700 - $1.2m</option><option>$1.2m+</option></select></div>
+            <button class="primary" type="submit">Search homes</button>
+          </form>
+          <div class="stats-row"><div class="stat"><strong>$1.8m</strong><span>closed residential volume</span></div><div class="stat"><strong>42</strong><span>local market specialists</span></div><div class="stat"><strong>18 days</strong><span>median listing to offer</span></div></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-inner">
+          <div class="section-head"><h2>Featured properties with room to live well.</h2><p>Hand-selected homes with strong location fundamentals, thoughtful finishes, and confident resale value.</p></div>
+          <div class="listing-grid">
+            <article class="listing-card"><div class="listing-media"><img src="../assets/listing-lakeview.webp" alt="Modern living room with large windows" /><span class="badge">New listing</span></div><div class="listing-body"><div class="price">$1,245,000</div><h3>Lakeview Modern Residence</h3><p class="address">1840 Willow Crest Drive, Austin, TX</p><div class="meta"><span>4 bed</span><span>3.5 bath</span><span>3,420 sq ft</span></div></div></article>
+            <article class="listing-card"><div class="listing-media"><img src="../assets/listing-garden.webp" alt="Bright kitchen with marble island" /><span class="badge">Open Sat</span></div><div class="listing-body"><div class="price">$875,000</div><h3>Garden District Townhome</h3><p class="address">77 Magnolia Lane, Charlotte, NC</p><div class="meta"><span>3 bed</span><span>2.5 bath</span><span>2,180 sq ft</span></div></div></article>
+            <article class="listing-card"><div class="listing-media"><img src="../assets/listing-canyon.webp" alt="Luxury home exterior with pool at dusk" /><span class="badge">Private tour</span></div><div class="listing-body"><div class="price">$2,390,000</div><h3>Canyon Ridge Estate</h3><p class="address">920 Mesa Point Road, Scottsdale, AZ</p><div class="meta"><span>5 bed</span><span>5 bath</span><span>5,760 sq ft</span></div></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="story">
+        <div class="section-inner split">
+          <div class="story-media"><img src="../assets/service-advisory.webp" alt="Agent showing a couple a bright living room" /></div>
+          <div><span class="eyebrow" style="color: var(--clay);">Advisory-first real estate</span><h2>Every move gets a strategy, not just a showing.</h2><p>From pricing models and offer structure to renovation upside and school-zone tradeoffs, our team turns the market into a set of readable choices.</p><div class="service-list"><div class="service"><span class="icon"><svg viewBox="0 0 24 24"><path d="M4 19V5"></path><path d="M4 19h16"></path><path d="m7 15 4-4 3 3 5-7"></path></svg></span><div><h3>Market-backed pricing</h3><p>Comparable sales, absorption rates, and timing signals translated into a confident list or offer range.</p></div></div><div class="service"><span class="icon"><svg viewBox="0 0 24 24"><path d="M12 3 4 7v6c0 5 3.5 7.5 8 8 4.5-.5 8-3 8-8V7l-8-4Z"></path><path d="m9 12 2 2 4-5"></path></svg></span><div><h3>Offer support</h3><p>Terms, contingencies, credits, and inspections handled with steady representation.</p></div></div></div></div>
+        </div>
+      </section>
+
+      <section class="valuation" id="valuation">
+        <div class="section-inner valuation-panel">
+          <div><span class="eyebrow" style="color: var(--clay);">Sell with clarity</span><h2>Know what your home could command this season.</h2><p>Request a valuation that combines recent sales, active competition, improvement history, and buyer demand in your exact micro-market.</p></div>
+          <form class="valuation-form"><input type="text" placeholder="Property address" aria-label="Property address" /><select aria-label="Selling timeline"><option>Selling timeline</option><option>Immediately</option><option>1-3 months</option><option>3-6 months</option><option>Just researching</option></select><textarea placeholder="Tell us about updates, goals, or questions" aria-label="Message"></textarea><button class="primary" type="submit">Request valuation</button></form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="footer-inner"><div><h3>Hearth & Key Realty</h3><p>Residential brokerage for thoughtful buyers, prepared sellers, and long-view investors.</p></div><div><h4>Explore</h4><a href="listings.html">Featured listings</a><a href="neighborhoods.html">Neighborhoods</a><a href="agents.html">Agents</a></div><div><h4>Services</h4><a href="services.html">Buy a home</a><a href="index.html#valuation">Sell a home</a><a href="services.html">Invest</a></div><div><h4>Contact</h4><a href="tel:+15550148800">(555) 014-8800</a><a href="mailto:hello@hearthkey.com">hello@hearthkey.com</a><a href="#">122 Market Street</a></div></div></footer>
+  </div>
+  <script src="../js/main.js"></script>
+</body>
+</html>
