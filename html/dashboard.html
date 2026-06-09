@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | Stackly Real Estate</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body class="dashboard-body">
+  <div class="realty-dashboard">
+    <aside class="dashboard-sidebar" aria-label="Dashboard navigation">
+      <a class="dashboard-brand" href="dashboard.html">
+        <span class="dashboard-mark"><svg viewBox="0 0 24 24"><path d="M4 11 12 4l8 7"></path><path d="M6 10v9h12v-9"></path><path d="M10 19v-5h4v5"></path></svg></span>
+        <img src="../assets/Stackly_logo.png" alt="Stackly" />
+      </a>
+      <nav class="dashboard-nav">
+        <a class="active" href="dashboard.html"><svg viewBox="0 0 24 24"><path d="M4 11 12 4l8 7"></path><path d="M6 10v9h12v-9"></path></svg><span>Dashboard</span></a>
+        <a href="dashboard-saved-homes.html"><svg viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M5 21V8l7-5 7 5v13"></path></svg><span>Saved Homes</span></a>
+        <a href="dashboard-agent.html"><svg viewBox="0 0 24 24"><path d="M8 7a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"></path><path d="M4 21a8 8 0 0 1 16 0"></path></svg><span>My Agent</span></a>
+        <a href="dashboard-tours.html"><svg viewBox="0 0 24 24"><path d="M8 2v4"></path><path d="M16 2v4"></path><path d="M3 10h18"></path><path d="M5 4h14v17H5z"></path></svg><span>Tours</span></a>
+        <a href="dashboard-market.html"><svg viewBox="0 0 24 24"><path d="M4 19V5"></path><path d="M4 19h16"></path><path d="m7 15 4-4 3 3 5-7"></path></svg><span>Market Watch</span></a>
+        <a href="dashboard-documents.html"><svg viewBox="0 0 24 24"><path d="M6 3h12v18H6z"></path><path d="M9 7h6"></path><path d="M9 11h6"></path><path d="M9 15h4"></path></svg><span>Documents</span></a>
+        <a href="dashboard-messages.html"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path></svg><span>Messages</span></a>
+        <a href="dashboard-settings.html"><svg viewBox="0 0 24 24"><path d="M12 15.5A3.5 3.5 0 1 0 12 8a3.5 3.5 0 0 0 0 7.5Z"></path><path d="M19.4 15a1.8 1.8 0 0 0 .36 1.98l.05.05a2.1 2.1 0 1 1-2.97 2.97l-.05-.05A1.8 1.8 0 0 0 15 19.4a1.8 1.8 0 0 0-1 .6 1.8 1.8 0 0 0-.5 1.27V21a2.1 2.1 0 1 1-4.2 0v-.08A1.8 1.8 0 0 0 8 19.4a1.8 1.8 0 0 0-1.98.36l-.05.05A2.1 2.1 0 1 1 3 16.84l.05-.05A1.8 1.8 0 0 0 3.6 15a1.8 1.8 0 0 0-.6-1 1.8 1.8 0 0 0-1.27-.5H1.5a2.1 2.1 0 1 1 0-4.2h.08A1.8 1.8 0 0 0 3.6 8a1.8 1.8 0 0 0-.36-1.98l-.05-.05A2.1 2.1 0 1 1 6.16 3l.05.05A1.8 1.8 0 0 0 8 3.6a1.8 1.8 0 0 0 1-.6 1.8 1.8 0 0 0 .5-1.27V1.5a2.1 2.1 0 1 1 4.2 0v.08A1.8 1.8 0 0 0 15 3.6a1.8 1.8 0 0 0 1.98-.36l.05-.05A2.1 2.1 0 1 1 20 6.16l-.05.05A1.8 1.8 0 0 0 19.4 8c.2.4.6.77 1 .97.38.2.82.3 1.27.3h.08a2.1 2.1 0 1 1 0 4.2h-.08A1.8 1.8 0 0 0 19.4 15Z"></path></svg><span>Settings</span></a>
+      </nav>
+      <div class="dashboard-sidebar-foot">
+        <a class="dashboard-logout" href="#" id="logout-trigger"><svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h4"></path><path d="m16 17 5-5-5-5"></path><path d="M21 12H9"></path></svg><span>Logout</span></a>
+        <div class="sidebar-note"><strong>Username</strong><span>Online</span></div>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="dashboard-topbar">
+        <div>
+          <h1>Real Estate Dashboard</h1>
+          <p>Welcome back, <strong id="dashboard-user-name">Client</strong> - Tuesday, 9 June 2026</p>
+        </div>
+        <a class="dashboard-avatar" href="#" aria-label="Open profile"><svg viewBox="0 0 24 24"><path d="M8 8a4 4 0 1 0 8 0 4 4 0 0 0-8 0Z"></path><path d="M4 21a8 8 0 0 1 16 0"></path></svg></a>
+      </header>
+
+      <section class="dashboard-stats" aria-label="Real estate summary">
+        <article class="dash-stat green"><svg viewBox="0 0 24 24"><path d="M8 2v4"></path><path d="M16 2v4"></path><path d="M3 10h18"></path><path d="M5 4h14v17H5z"></path><path d="m9 15 2 2 4-5"></path></svg><div><span>Next tour</span><strong>Lakeview Modern - Jun 11</strong></div></article>
+        <article class="dash-stat gold"><svg viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M5 21V8l7-5 7 5v13"></path></svg><div><span>Saved homes</span><strong>8 properties active</strong></div></article>
+        <article class="dash-stat red"><svg viewBox="0 0 24 24"><path d="M6 3h12v18H6z"></path><path d="M9 8h6"></path><path d="M9 12h6"></path><path d="M9 16h4"></path></svg><div><span>Offer packet</span><strong>2 documents pending</strong></div></article>
+        <article class="dash-stat blue"><svg viewBox="0 0 24 24"><path d="M12 3 4 7v6c0 5 3.5 7.5 8 8 4.5-.5 8-3 8-8V7l-8-4Z"></path><path d="m9 12 2 2 4-5"></path></svg><div><span>Pre-approval</span><strong>$1.35M verified</strong></div></article>
+      </section>
+
+      <section class="dashboard-content">
+        <article class="dash-panel tours-panel">
+          <h2><svg viewBox="0 0 24 24"><path d="M8 2v4"></path><path d="M16 2v4"></path><path d="M3 10h18"></path><path d="M5 4h14v17H5z"></path></svg>Upcoming Tours</h2>
+          <div class="dash-list">
+            <div class="dash-row"><span class="dot green"></span><div><strong>Lakeview Modern Residence</strong><p>Austin, TX - Jun 11, 10:30 AM</p></div><em>Confirmed</em></div>
+            <div class="dash-row"><span class="dot red"></span><div><strong>Garden District Townhome</strong><p>Charlotte, NC - Jun 14, 2:00 PM</p></div><em class="pending">Pending</em></div>
+            <div class="dash-row"><span class="dot gold"></span><div><strong>Canyon Ridge Estate</strong><p>Scottsdale, AZ - Jun 18, 7:30 AM</p></div><em>Confirmed</em></div>
+          </div>
+        </article>
+
+        <article class="dash-panel market-panel">
+          <h2><svg viewBox="0 0 24 24"><path d="M4 19V5"></path><path d="M4 19h16"></path><path d="m7 15 4-4 3 3 5-7"></path></svg>Market Summary</h2>
+          <div class="market-meter"><div><span>Austin median price</span><strong>$742K</strong></div><i style="--value: 82%; --bar: #0f846b;"></i></div>
+          <div class="market-meter"><div><span>Buyer competition</span><strong>Moderate</strong></div><i style="--value: 58%; --bar: #c69a2d;"></i></div>
+          <div class="market-meter"><div><span>Inventory movement</span><strong>18 days</strong></div><i style="--value: 76%; --bar: #0f846b;"></i></div>
+          <div class="market-meter"><div><span>Offer readiness</span><strong>Strong</strong></div><i style="--value: 88%; --bar: #1d5da8;"></i></div>
+        </article>
+      </section>
+
+      <section class="dash-panel property-panel">
+        <div class="dashboard-section-head">
+          <h2><svg viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M5 21V8l7-5 7 5v13"></path></svg>Priority Properties</h2>
+          <a href="listings.html">View listings</a>
+        </div>
+        <div class="dash-property-grid">
+          <article><img src="../assets/listing-lakeview.webp" alt="Lakeview Modern Residence living room" /><div><strong>Lakeview Modern Residence</strong><p>$1,245,000 - 4 bed - Austin, TX</p></div></article>
+          <article><img src="../assets/listing-garden.webp" alt="Garden District Townhome kitchen" /><div><strong>Garden District Townhome</strong><p>$875,000 - 3 bed - Charlotte, NC</p></div></article>
+          <article><img src="../assets/listing-canyon.webp" alt="Canyon Ridge Estate exterior" /><div><strong>Canyon Ridge Estate</strong><p>$2,390,000 - 5 bed - Scottsdale, AZ</p></div></article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Logout Confirmation Modal -->
+  <div class="logout-modal-overlay" id="logout-modal" aria-hidden="true">
+    <div class="logout-modal" role="dialog" aria-modal="true" aria-labelledby="logout-title">
+      <h3 id="logout-title">Confirm Logout</h3>
+      <p>Are you sure you want to sign out of your Stackly workspace?</p>
+      <div class="logout-actions">
+        <button class="logout-btn-cancel" id="logout-cancel" type="button">Cancel</button>
+        <button class="logout-btn-confirm" id="logout-confirm" type="button">Logout</button>
+      </div>
+    </div>
+  </div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

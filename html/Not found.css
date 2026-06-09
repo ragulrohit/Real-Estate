@@ -1,0 +1,643 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #191919;
+  color: #f5f5f2;
+  font-family: "Outfit", Arial, sans-serif;
+}
+
+.not-found {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(230px, 0.86fr) minmax(280px, 1fr);
+  min-height: 100vh;
+  overflow: hidden;
+  padding: clamp(28px, 7vw, 76px) clamp(20px, 9vw, 112px);
+}
+
+.not-found::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 68% 84%, rgba(239, 239, 174, 0.12), transparent 20%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025), transparent 28% 72%, rgba(0, 0, 0, 0.18));
+  pointer-events: none;
+  animation: backgroundGlow 6s ease-in-out infinite;
+}
+
+.error-copy {
+  position: relative;
+  z-index: 2;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+  padding-top: 0;
+  animation: slideIn 0.9s ease-out both;
+}
+
+.error-copy h1 {
+  margin: 0 0 20px;
+  color: #f23d4a;
+  font-size: clamp(4.2rem, 11vw, 7.5rem);
+  font-weight: 400;
+  line-height: 0.9;
+  text-shadow: 0 0 18px rgba(242, 61, 74, 0.22);
+  animation: warningPulse 2.8s ease-in-out infinite;
+}
+
+.error-copy p {
+  margin: 0;
+  color: #f4f4f0;
+  font-size: clamp(1.1rem, 2.2vw, 1.65rem);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.home-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin-top: 28px;
+  padding: 0 24px;
+  border: 2px solid rgba(244, 240, 174, 0.78);
+  border-radius: 6px;
+  background: rgba(244, 240, 174, 0.1);
+  color: #f4f0ae;
+  font-size: 0.98rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.home-btn:hover,
+.home-btn:focus-visible {
+  background: #f4f0ae;
+  color: #191919;
+  box-shadow: 0 12px 26px rgba(244, 240, 174, 0.18);
+  transform: translateY(-2px);
+}
+
+.home-btn:focus-visible {
+  outline: 3px solid rgba(242, 61, 74, 0.72);
+  outline-offset: 4px;
+}
+
+.robot-scene {
+  position: relative;
+  z-index: 1;
+  align-self: stretch;
+  min-height: 420px;
+}
+
+.lamp {
+  position: absolute;
+  top: -12px;
+  left: 48%;
+  width: 62px;
+  height: 46px;
+  transform: translateX(-50%);
+  background: #41413e;
+  clip-path: polygon(34% 0, 66% 0, 100% 66%, 78% 100%, 22% 100%, 0 66%);
+  transform-origin: 50% -16px;
+  animation: lampSwing 4.8s ease-in-out infinite;
+}
+
+.lamp::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 5px;
+  height: 22px;
+  background: #d6d6cd;
+  transform: translateX(-50%);
+}
+
+.lamp span {
+  position: absolute;
+  right: 12px;
+  bottom: 6px;
+  left: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: #f2f2d6;
+}
+
+.spotlight {
+  position: absolute;
+  top: 26px;
+  left: 48%;
+  width: min(56vw, 360px);
+  height: min(82vh, 560px);
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, rgba(235, 236, 205, 0.42), rgba(235, 236, 205, 0.2) 46%, rgba(235, 236, 205, 0.04));
+  clip-path: polygon(46% 0, 54% 0, 100% 100%, 0 100%);
+  transform-origin: 50% 0;
+  animation: spotlightPulse 4.8s ease-in-out infinite;
+}
+
+.floor {
+  position: absolute;
+  right: clamp(12px, 16vw, 152px);
+  bottom: clamp(56px, 9vw, 94px);
+  width: 290px;
+  height: 78px;
+  border-radius: 50%;
+  background: #f4f0ae;
+  transform: rotate(-2deg);
+  animation: floorGlow 3.8s ease-in-out infinite;
+}
+
+.robot {
+  --line: #2c2c2a;
+  --metal: #eeeeea;
+  --shade: #d4d4cc;
+  position: absolute;
+  right: clamp(58px, 20vw, 205px);
+  bottom: clamp(84px, 11vw, 130px);
+  width: 178px;
+  height: 270px;
+  color: var(--line);
+  transform: rotate(7deg);
+  transform-origin: 50% 90%;
+  animation: sadRobotDance 2.8s ease-in-out infinite;
+}
+
+.head,
+.body,
+.neck,
+.arm,
+.hand,
+.leg,
+.foot,
+.panel {
+  border: 4px solid var(--line);
+  background: var(--metal);
+}
+
+.head {
+  position: absolute;
+  top: 0;
+  left: 40px;
+  width: 105px;
+  height: 85px;
+  transform: rotate(9deg);
+  transform-origin: 50% 90%;
+  animation: sadHeadNod 2.8s ease-in-out infinite;
+}
+
+.head::before,
+.head::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  width: 18px;
+  height: 4px;
+  background: var(--line);
+}
+
+.head::before {
+  left: 15px;
+  transform: rotate(19deg);
+}
+
+.head::after {
+  right: 17px;
+  transform: rotate(-19deg);
+}
+
+.eye {
+  position: absolute;
+  top: 32px;
+  width: 12px;
+  height: 12px;
+  border: 3px solid var(--line);
+  border-radius: 50%;
+}
+
+.eye-left {
+  left: 20px;
+}
+
+.eye-right {
+  right: 22px;
+}
+
+.mouth {
+  position: absolute;
+  bottom: 18px;
+  left: 38px;
+  width: 28px;
+  height: 4px;
+  background: var(--line);
+  transform: rotate(12deg);
+}
+
+.dent {
+  position: absolute;
+  right: -4px;
+  bottom: 16px;
+  width: 20px;
+  height: 20px;
+  border-left: 4px solid var(--line);
+  border-bottom: 4px solid var(--line);
+  transform: rotate(35deg);
+}
+
+.neck {
+  position: absolute;
+  top: 82px;
+  left: 83px;
+  width: 34px;
+  height: 23px;
+  background: var(--shade);
+}
+
+.body {
+  position: absolute;
+  top: 101px;
+  left: 43px;
+  width: 96px;
+  height: 104px;
+  background: linear-gradient(135deg, #eeeeea 0 55%, #d5d5cd 56%);
+}
+
+.panel {
+  position: absolute;
+  top: 25px;
+  left: 20px;
+  width: 50px;
+  height: 48px;
+  background: #d2d2ca;
+}
+
+.wire {
+  position: absolute;
+  border: 3px solid var(--line);
+  border-top: 0;
+  border-left: 0;
+}
+
+.wire-one {
+  top: 31px;
+  left: 31px;
+  width: 16px;
+  height: 18px;
+  transform: rotate(16deg);
+}
+
+.wire-two {
+  top: 36px;
+  right: 26px;
+  width: 18px;
+  height: 22px;
+  transform: rotate(-32deg);
+}
+
+.arm {
+  position: absolute;
+  width: 15px;
+  height: 76px;
+  border-radius: 999px;
+  background: repeating-linear-gradient(0deg, #efefea 0 8px, #bdbdb6 8px 12px);
+}
+
+.arm-left {
+  top: 114px;
+  left: 18px;
+  transform: rotate(-42deg);
+  transform-origin: 50% 8px;
+  animation: sadArmLeft 2.8s ease-in-out infinite;
+}
+
+.arm-right {
+  top: 104px;
+  right: 6px;
+  transform: rotate(-69deg);
+  transform-origin: 50% 8px;
+  animation: sadArmRight 2.8s ease-in-out 0.18s infinite;
+}
+
+.hand {
+  position: absolute;
+  width: 28px;
+  height: 26px;
+  border-radius: 50%;
+}
+
+.hand-left {
+  top: 160px;
+  left: 3px;
+}
+
+.hand-right {
+  top: 94px;
+  right: -32px;
+}
+
+.leg {
+  position: absolute;
+  top: 198px;
+  width: 20px;
+  height: 54px;
+  border-radius: 999px;
+  background: repeating-linear-gradient(90deg, #efefea 0 10px, #bdbdb6 10px 15px);
+}
+
+.leg-left {
+  left: 55px;
+  transform: rotate(32deg);
+}
+
+.leg-right {
+  left: 96px;
+  transform: rotate(-20deg);
+}
+
+.foot {
+  position: absolute;
+  top: 245px;
+  width: 58px;
+  height: 24px;
+  border-radius: 16px 16px 8px 8px;
+  background: var(--shade);
+}
+
+.foot-left {
+  left: 32px;
+  transform: rotate(17deg);
+}
+
+.foot-right {
+  left: 85px;
+  transform: rotate(-14deg);
+}
+
+.gear,
+.bolt {
+  position: absolute;
+  border: 4px solid #33332f;
+}
+
+.gear {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.gear::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 3px solid #33332f;
+  border-radius: 50%;
+}
+
+.gear-one {
+  right: 50px;
+  bottom: 18px;
+  animation: gearSpin 5s linear infinite;
+}
+
+.gear-two {
+  right: 87px;
+  bottom: 33px;
+  width: 18px;
+  height: 18px;
+  border-width: 3px;
+  animation: gearSpinReverse 4s linear infinite;
+}
+
+.gear-two::before {
+  inset: 4px;
+  border-width: 2px;
+}
+
+.bolt {
+  width: 13px;
+  height: 13px;
+  background: #33332f;
+  transform: rotate(26deg);
+}
+
+.bolt-one {
+  left: 74px;
+  bottom: 17px;
+  animation: boltTwitch 2.1s ease-in-out infinite;
+}
+
+.bolt-two {
+  right: 116px;
+  top: 14px;
+  animation: boltTwitch 2.4s ease-in-out 0.3s infinite;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes warningPulse {
+  0%,
+  100% {
+    text-shadow: 0 0 16px rgba(242, 61, 74, 0.18);
+    transform: translateY(0);
+  }
+  50% {
+    text-shadow: 0 0 28px rgba(242, 61, 74, 0.36);
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes backgroundGlow {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes lampSwing {
+  0%,
+  100% {
+    transform: translateX(-50%) rotate(-1.5deg);
+  }
+  50% {
+    transform: translateX(-50%) rotate(1.5deg);
+  }
+}
+
+@keyframes spotlightPulse {
+  0%,
+  100% {
+    opacity: 0.88;
+    transform: translateX(-50%) scaleX(0.98);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) scaleX(1.03);
+  }
+}
+
+@keyframes floorGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(244, 240, 174, 0);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(244, 240, 174, 0.2);
+  }
+}
+
+@keyframes sadRobotDance {
+  0%,
+  100% {
+    transform: rotate(5deg) translateY(0);
+  }
+  25% {
+    transform: rotate(1deg) translateY(6px);
+  }
+  50% {
+    transform: rotate(8deg) translateY(-3px);
+  }
+  75% {
+    transform: rotate(3deg) translateY(5px);
+  }
+}
+
+@keyframes sadHeadNod {
+  0%,
+  100% {
+    transform: rotate(10deg) translateY(0);
+  }
+  50% {
+    transform: rotate(16deg) translateY(4px);
+  }
+}
+
+@keyframes sadArmLeft {
+  0%,
+  100% {
+    transform: rotate(-47deg);
+  }
+  50% {
+    transform: rotate(-32deg);
+  }
+}
+
+@keyframes sadArmRight {
+  0%,
+  100% {
+    transform: rotate(-76deg);
+  }
+  50% {
+    transform: rotate(-58deg);
+  }
+}
+
+@keyframes gearSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gearSpinReverse {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes boltTwitch {
+  0%,
+  100% {
+    transform: rotate(26deg) translateY(0);
+  }
+  50% {
+    transform: rotate(40deg) translateY(-4px);
+  }
+}
+
+@media (max-width: 760px) {
+  .not-found {
+    grid-template-columns: 1fr;
+    align-items: start;
+    padding: 42px 24px;
+  }
+
+  .error-copy {
+    padding-top: 0;
+  }
+
+  .robot-scene {
+    min-height: 430px;
+    margin-top: 10px;
+  }
+
+  .lamp,
+  .spotlight {
+    left: 54%;
+  }
+
+  .floor {
+    right: 50%;
+    width: 260px;
+    transform: translateX(50%) rotate(-2deg);
+  }
+
+  .robot {
+    right: 50%;
+    transform: translateX(58%) rotate(7deg) scale(0.9);
+    transform-origin: bottom center;
+    animation-name: mobileSadRobotDance;
+  }
+}
+
+@keyframes mobileSadRobotDance {
+  0%,
+  100% {
+    transform: translateX(58%) rotate(5deg) scale(0.9) translateY(0);
+  }
+  25% {
+    transform: translateX(58%) rotate(1deg) scale(0.9) translateY(6px);
+  }
+  50% {
+    transform: translateX(58%) rotate(8deg) scale(0.9) translateY(-3px);
+  }
+  75% {
+    transform: translateX(58%) rotate(3deg) scale(0.9) translateY(5px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

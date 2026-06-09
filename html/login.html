@@ -1,7 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Sign In | Hearth & Key Realty</title><link rel="stylesheet" href="../css/styles.css" /></head>
-<body><div class="page">
-  <header class="site-header" aria-label="Primary navigation"><a class="brand" href="index.html"><span class="brand-mark"><svg viewBox="0 0 24 24"><path d="m3 11 9-7 9 7"></path><path d="M5 10v10h14V10"></path><path d="M9 20v-6h6v6"></path></svg></span>Hearth & Key</a><button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg><svg class="close-icon" viewBox="0 0 24 24" hidden><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button><div class="nav-menu"><nav class="nav-links"><a href="index.html">Home</a><a href="listings.html">Listings</a><a href="services.html">Services</a><a href="neighborhoods.html">Neighborhoods</a><a href="agents.html">Agents</a></nav><div class="nav-actions"><a class="ghost active" href="login.html">Sign in</a><a class="primary" href="index.html#valuation">Get valuation</a></div></div></header>
-  <main><section class="auth-section"><div class="section-inner auth-layout"><div class="auth-media"><img src="../assets/login-home.webp" alt="Warm modern home interior" /></div><div><div class="auth-copy"><span class="eyebrow" style="color: var(--clay);">Client access</span><h1>Sign in to your saved homes.</h1><p>Review searches, favorite properties, tour notes, and valuation requests in one private workspace.</p></div><form class="auth-card"><h2>Welcome back</h2><p>Use your email and password to continue.</p><input type="email" placeholder="Email address" aria-label="Email address" /><input type="password" placeholder="Password" aria-label="Password" /><div class="form-note"><label><input type="checkbox" /> Remember me</label><a href="forgot-password.html">Forgot password?</a></div><button class="primary" type="submit">Sign in</button><p>New here? <a href="index.html#valuation">Request an advisor intro</a></p></form></div></div></section></main>
-</div><script src="../js/main.js"></script></body></html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In | Stackly Real Estate</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="index.html"><img class="brand-logo" src="../assets/Stackly_logo.png" alt="Stackly" /></a>
+      <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+        <svg class="menu-icon" viewBox="0 0 24 24"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
+        <svg class="close-icon" viewBox="0 0 24 24" hidden><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+      </button>
+      <div class="nav-menu">
+        <nav class="nav-links"><a href="index.html">Home</a><a href="listings.html">Listings</a><a href="services.html">Services</a><a href="neighborhoods.html">Neighborhoods</a><a href="agents.html">Agents</a></nav>
+        <div class="nav-actions"><a class="primary" href="login.html">Sign in</a></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="auth-section">
+        <div class="section-inner auth-layout">
+          <div class="auth-media"><img src="../assets/login-home.webp" alt="Warm modern home interior" /></div>
+          <div>
+            <div class="auth-copy">
+              <span class="eyebrow" style="color: var(--clay);">Client access</span>
+              <h1>Sign in to your Stackly workspace.</h1>
+              <p>Review saved homes, tour notes, valuation requests, and advisor messages in one polished real estate dashboard.</p>
+            </div>
+            <form class="auth-card" data-redirect="dashboard.html">
+              <h2>Welcome back</h2>
+              <p>Use your email and password to continue.</p>
+              <input type="text" placeholder="Username" aria-label="Username" data-username required />
+              <input type="email" placeholder="Email address" aria-label="Email address" required />
+              <input type="password" placeholder="Password" aria-label="Password" required />
+              <div class="form-note"><label class="remember-option"><input type="checkbox" required /> <span>Remember me</span></label><a href="forgot-password.html">Forgot password?</a></div>
+              <button class="primary" type="submit">Sign in</button>
+              <div class="divider">or</div>
+              <button class="google-btn" type="button" aria-label="Continue with Google">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 12.2c0-.7-.1-1.4-.2-2H12v3.8h4.8c-.2 1-.8 1.9-1.7 2.5v2.1h2.8c1.6-1.5 2.6-3.7 2.6-6.4Z"></path><path d="M12 21c2.3 0 4.2-.8 5.6-2.1l-2.8-2.1c-.8.5-1.7.8-2.8.8-2.1 0-4-1.4-4.6-3.4H4.6v2.2C6 19.1 8.8 21 12 21Z"></path><path d="M7.4 14.2c-.2-.5-.3-1.1-.3-1.7s.1-1.2.3-1.7V8.6H4.6C4 9.8 3.7 11.1 3.7 12.5S4 15.2 4.6 16.4l2.8-2.2Z"></path><path d="M12 7.4c1.2 0 2.3.4 3.2 1.2l2.5-2.5C16.2 4.8 14.3 4 12 4 8.8 4 6 5.9 4.6 8.6l2.8 2.2c.6-2 2.5-3.4 4.6-3.4Z"></path></svg>
+                Continue with Google
+              </button>
+              <p>New here? <a href="create-account.html">Create an account</a></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-about">
+      <img class="footer-brand" src="../assets/Stackly_logo.png" alt="Stackly" />
+      <p>Real estate guidance for buyers, sellers, investors, and families planning their next move.</p>
+      <a class="footer-location" href="Not found.html">122 Market Street, Austin, TX</a>
+      <div class="footer-social" aria-label="Social links">
+        <a href="Not found.html" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1Z"></path></svg></a>
+        <a href="Not found.html" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"></rect><path d="M16.5 7.5h.01"></path><circle cx="12" cy="12" r="3.5"></circle></svg></a>
+        <a href="Not found.html" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M6 9v11"></path><path d="M6 5v.01"></path><path d="M10 20v-7a4 4 0 0 1 8 0v7"></path></svg></a>
+        <a href="Not found.html" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22 12s0-3.5-.5-5a3 3 0 0 0-2-2C17.9 4.5 12 4.5 12 4.5s-5.9 0-7.5.5a3 3 0 0 0-2 2C2 8.5 2 12 2 12s0 3.5.5 5a3 3 0 0 0 2 2c1.6.5 7.5.5 7.5.5s5.9 0 7.5-.5a3 3 0 0 0 2-2c.5-1.5.5-5 .5-5Z"></path><path d="m10 9 5 3-5 3Z"></path></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="listings.html">Featured listings</a>
+      <a href="neighborhoods.html">Neighborhoods</a>
+      <a href="agents.html">Agents</a>
+      <a href="login.html">Client login</a>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <a href="services.html">Buy a home</a>
+      <a href="index.html#valuation">Sell a home</a>
+      <a href="services.html">Invest</a>
+      <a href="services.html">Relocation planning</a>
+      <a href="listings.html">Private tours</a>
+    </div>
+    <div class="footer-support">
+      <h4>Contact &amp; Support</h4>
+      <a href="tel:+15550148800">(555) 014-8800</a>
+      <a href="mailto:hello@stacklyhomes.com">hello@stacklyhomes.com</a>
+      <div class="support-hours" aria-label="Real estate support hours">
+        <div><strong>Consultations</strong><span>24 Hours</span></div>
+        <div><strong>Open Tours</strong><span>Sat - Sun</span></div>
+        <div><strong>Closing Desk</strong><span>Mon - Fri</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Stackly Real Estate. All rights reserved.</span>
+    <div>
+      <a href="Not found.html">Terms &amp; Conditions</a>
+      <a href="Not found.html">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

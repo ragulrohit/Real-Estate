@@ -1,11 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Listings | Hearth & Key Realty</title><link rel="stylesheet" href="../css/styles.css" /></head>
-<body><div class="page">
-  <header class="site-header" aria-label="Primary navigation"><a class="brand" href="index.html"><span class="brand-mark"><svg viewBox="0 0 24 24"><path d="m3 11 9-7 9 7"></path><path d="M5 10v10h14V10"></path><path d="M9 20v-6h6v6"></path></svg></span>Hearth & Key</a><button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg><svg class="close-icon" viewBox="0 0 24 24" hidden><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button><div class="nav-menu"><nav class="nav-links"><a href="index.html">Home</a><a class="active" href="listings.html">Listings</a><a href="services.html">Services</a><a href="neighborhoods.html">Neighborhoods</a><a href="agents.html">Agents</a></nav><div class="nav-actions"><a class="ghost" href="login.html">Sign in</a><a class="primary" href="index.html#valuation">Get valuation</a></div></div></header>
-  <main>
-    <section class="hero subhero" style="--hero-image: url('../assets/listing-canyon.webp');"><div class="hero-inner"><span class="eyebrow">Current inventory</span><h1>Homes selected for lifestyle, location, and long-term value.</h1><p class="hero-copy">Browse a focused collection of homes with clear pricing context and strong neighborhood fundamentals.</p></div></section>
-    <section><div class="section-inner"><div class="section-head"><h2>Available properties.</h2><p>Refine by use case, then schedule a private tour with a local specialist.</p></div><div class="filters"><button class="filter-btn active" type="button">For sale</button><button class="filter-btn" type="button">Open houses</button><button class="filter-btn" type="button">New builds</button><button class="filter-btn" type="button">Investment</button></div><div class="listing-grid"><article class="listing-card"><div class="listing-media"><img src="../assets/listing-lakeview.webp" alt="Modern living room" /><span class="badge">New listing</span></div><div class="listing-body"><div class="price">$1,245,000</div><h3>Lakeview Modern Residence</h3><p class="address">1840 Willow Crest Drive, Austin, TX</p><div class="meta"><span>4 bed</span><span>3.5 bath</span><span>3,420 sq ft</span></div></div></article><article class="listing-card"><div class="listing-media"><img src="../assets/listing-garden.webp" alt="Bright kitchen" /><span class="badge">Open Sat</span></div><div class="listing-body"><div class="price">$875,000</div><h3>Garden District Townhome</h3><p class="address">77 Magnolia Lane, Charlotte, NC</p><div class="meta"><span>3 bed</span><span>2.5 bath</span><span>2,180 sq ft</span></div></div></article><article class="listing-card"><div class="listing-media"><img src="../assets/listing-canyon.webp" alt="Luxury exterior" /><span class="badge">Private tour</span></div><div class="listing-body"><div class="price">$2,390,000</div><h3>Canyon Ridge Estate</h3><p class="address">920 Mesa Point Road, Scottsdale, AZ</p><div class="meta"><span>5 bed</span><span>5 bath</span><span>5,760 sq ft</span></div></div></article></div></div></section>
-  </main>
-  <footer class="site-footer"><div class="footer-inner"><div><h3>Hearth & Key Realty</h3><p>Residential brokerage for thoughtful buyers, prepared sellers, and long-view investors.</p></div><div><h4>Explore</h4><a href="listings.html">Featured listings</a><a href="neighborhoods.html">Neighborhoods</a><a href="agents.html">Agents</a></div><div><h4>Services</h4><a href="services.html">Buy a home</a><a href="index.html#valuation">Sell a home</a><a href="services.html">Invest</a></div><div><h4>Contact</h4><a href="tel:+15550148800">(555) 014-8800</a><a href="mailto:hello@hearthkey.com">hello@hearthkey.com</a><a href="#">122 Market Street</a></div></div></footer>
-</div><script src="../js/main.js"></script></body></html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Listings | Stackly Real Estate</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="site-header" aria-label="Primary navigation">
+      <a class="brand" href="index.html"><img class="brand-logo" src="../assets/Stackly_logo.png" alt="Stackly" /></a>
+      <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg><svg class="close-icon" viewBox="0 0 24 24" hidden><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+      <div class="nav-menu"><nav class="nav-links"><a href="index.html">Home</a><a class="active" href="listings.html">Listings</a><a href="services.html">Services</a><a href="neighborhoods.html">Neighborhoods</a><a href="agents.html">Agents</a></nav><div class="nav-actions"><a class="primary" href="login.html">Sign in</a></div></div>
+    </header>
+
+    <main>
+      <section class="hero subhero" style="--hero-image: url('../assets/listing-canyon.webp');">
+        <div class="hero-inner"><span class="eyebrow">Current inventory</span><h1>Homes selected for lifestyle, location, and long-term value.</h1><p class="hero-copy">Browse a focused collection of homes with clear pricing context, tour-ready details, and neighborhood fundamentals.</p></div>
+      </section>
+
+      <section class="featured-showcase">
+        <div class="section-inner">
+          <div class="section-head"><h2>Featured homes this week.</h2><p>Swipe through homes our advisors are watching for standout design, location strength, and buyer opportunity.</p></div>
+          <div class="listing-slideshow" data-slideshow>
+            <div class="slideshow-track">
+              <article class="showcase-slide is-active">
+                <img src="../assets/listing-lakeview.webp" alt="Lakeview modern home interior" />
+                <div class="slide-copy">
+                  <span>Lakefront lifestyle</span>
+                  <h3>Lakeview Modern Residence</h3>
+                  <p>Open living, clean architecture, and a quiet water-facing setting with strong long-term demand.</p>
+                  <strong>$1,245,000</strong>
+                </div>
+              </article>
+              <article class="showcase-slide">
+                <img src="../assets/listing-garden.webp" alt="Garden district townhome kitchen" />
+                <div class="slide-copy">
+                  <span>Walkable comfort</span>
+                  <h3>Garden District Townhome</h3>
+                  <p>Low-maintenance living close to dining, parks, and transit with a bright entertaining floor plan.</p>
+                  <strong>$875,000</strong>
+                </div>
+              </article>
+              <article class="showcase-slide">
+                <img src="../assets/listing-canyon.webp" alt="Canyon ridge estate exterior" />
+                <div class="slide-copy">
+                  <span>Private retreat</span>
+                  <h3>Canyon Ridge Estate</h3>
+                  <p>Resort-style outdoor space, expanded guest areas, and dramatic desert views for full-time living.</p>
+                  <strong>$2,390,000</strong>
+                </div>
+              </article>
+            </div>
+            <div class="slideshow-controls" aria-label="Featured home slideshow controls">
+              <button class="slide-btn" type="button" data-slide="prev" aria-label="Previous home"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"></path></svg></button>
+              <div class="slide-dots" aria-label="Choose featured home">
+                <button class="is-active" type="button" data-slide-to="0" aria-label="Show Lakeview Modern Residence"></button>
+                <button type="button" data-slide-to="1" aria-label="Show Garden District Townhome"></button>
+                <button type="button" data-slide-to="2" aria-label="Show Canyon Ridge Estate"></button>
+              </div>
+              <button class="slide-btn" type="button" data-slide="next" aria-label="Next home"><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"></path></svg></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="available-properties">
+        <div class="section-inner">
+          <div class="section-head"><h2>Available properties.</h2><p>Refine by use case, then schedule a private tour with a Stackly market specialist.</p></div>
+          <div class="filters" data-listing-filters><button class="filter-btn" type="button" data-filter="">All homes</button><button class="filter-btn active" type="button" data-filter="for-sale">For sale</button><button class="filter-btn" type="button" data-filter="open-houses">Open houses</button><button class="filter-btn" type="button" data-filter="new-builds">New builds</button><button class="filter-btn" type="button" data-filter="investment">Investment</button></div>
+          <div class="listing-grid">
+            <article class="listing-card" data-status="for-sale" data-type="single-family" data-price="1245" data-search="lakeview modern residence 1840 willow crest drive austin tx new listing single family"><div class="listing-media"><img src="../assets/listing-lakeview.webp" alt="Modern living room" /><span class="badge">New listing</span></div><div class="listing-body"><div class="price">$1,245,000</div><h3>Lakeview Modern Residence</h3><p class="address">1840 Willow Crest Drive, Austin, TX</p><div class="meta"><span>4 bed</span><span>3.5 bath</span><span>3,420 sq ft</span></div></div></article>
+            <article class="listing-card" data-status="open-houses" data-type="townhouse" data-price="875" data-search="garden district townhome 77 magnolia lane charlotte nc open sat townhouse"><div class="listing-media"><img src="../assets/listing-garden.webp" alt="Bright kitchen" /><span class="badge">Open Sat</span></div><div class="listing-body"><div class="price">$875,000</div><h3>Garden District Townhome</h3><p class="address">77 Magnolia Lane, Charlotte, NC</p><div class="meta"><span>3 bed</span><span>2.5 bath</span><span>2,180 sq ft</span></div></div></article>
+            <article class="listing-card" data-status="for-sale" data-type="luxury-estate" data-price="2390" data-search="canyon ridge estate 920 mesa point road scottsdale az private tour luxury estate"><div class="listing-media"><img src="../assets/listing-canyon.webp" alt="Luxury exterior" /><span class="badge">Private tour</span></div><div class="listing-body"><div class="price">$2,390,000</div><h3>Canyon Ridge Estate</h3><p class="address">920 Mesa Point Road, Scottsdale, AZ</p><div class="meta"><span>5 bed</span><span>5 bath</span><span>5,760 sq ft</span></div></div></article>
+            <article class="listing-card" data-status="for-sale" data-type="single-family" data-price="1680" data-search="harbor point villa 508 seaport walk tampa fl waterfront single family"><div class="listing-media"><img src="../assets/neighborhood-harbor.webp" alt="Harbor neighborhood home" /><span class="badge">Waterfront</span></div><div class="listing-body"><div class="price">$1,680,000</div><h3>Harbor Point Villa</h3><p class="address">508 Seaport Walk, Tampa, FL</p><div class="meta"><span>4 bed</span><span>4 bath</span><span>3,890 sq ft</span></div></div></article>
+            <article class="listing-card" data-status="new-builds" data-type="single-family" data-price="1120" data-search="summit view new build 311 ridge hollow court denver co new build single family"><div class="listing-media"><img src="../assets/neighborhood-summit.webp" alt="Summit neighborhood home" /><span class="badge">New build</span></div><div class="listing-body"><div class="price">$1,120,000</div><h3>Summit View New Build</h3><p class="address">311 Ridge Hollow Court, Denver, CO</p><div class="meta"><span>4 bed</span><span>3 bath</span><span>2,940 sq ft</span></div></div></article>
+            <article class="listing-card" data-status="investment" data-type="condo" data-price="695" data-search="old town brick duplex 42 linden avenue alexandria va investment condo"><div class="listing-media"><img src="../assets/neighborhood-old-town.webp" alt="Old town brick home" /><span class="badge">Investment</span></div><div class="listing-body"><div class="price">$695,000</div><h3>Old Town Brick Duplex</h3><p class="address">42 Linden Avenue, Alexandria, VA</p><div class="meta"><span>4 bed</span><span>2 bath</span><span>2,260 sq ft</span></div></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="listing-market">
+        <div class="section-inner market-snapshot">
+          <div>
+            <span class="eyebrow" style="color: var(--clay);">Market snapshot</span>
+            <h2>Useful signals before you choose a showing.</h2>
+            <p>We pair each listing with pricing context, owner cost estimates, and neighborhood details so your shortlist is practical from the start.</p>
+          </div>
+          <div class="snapshot-grid">
+            <article><strong>18</strong><span>homes reviewed weekly</span></article>
+            <article><strong>7 days</strong><span>average tour planning window</span></article>
+            <article><strong>4.8%</strong><span>average price gap tracked</span></article>
+            <article><strong>12</strong><span>local data points per home</span></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="neighborhoods">
+        <div class="section-inner">
+          <div class="section-head"><h2>Listing intelligence.</h2><p>Each home is reviewed for daily comfort, resale strength, and real-world ownership costs.</p></div>
+          <div class="content-grid">
+            <article class="info-card"><span>Tour planning</span><h3>See the right homes in the right order.</h3><p>Stackly groups tours by commute route, inspection priority, school zone, and likely competition so your day feels organized.</p></article>
+            <article class="info-card"><span>Offer clarity</span><h3>Know when to move and when to wait.</h3><p>We compare nearby sales, days on market, seller motivation, and repair exposure before writing an offer.</p></article>
+            <article class="info-card"><span>Closing support</span><h3>Stay ahead of contract milestones.</h3><p>Your advisor tracks lender, inspection, appraisal, title, and walk-through steps through closing.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-inner insight-panel">
+          <div>
+            <span class="eyebrow" style="color: var(--clay);">Before you tour</span>
+            <h2>What we check before a home reaches your shortlist.</h2>
+            <p>Stackly reviews the practical details that shape daily life and future resale, so each showing starts with useful context instead of guesswork.</p>
+          </div>
+          <div class="check-grid">
+            <article class="check-card"><strong>01</strong><h3>Price position</h3><p>Recent sales, competing listings, and seller momentum are compared before a tour is booked.</p></article>
+            <article class="check-card"><strong>02</strong><h3>Ownership costs</h3><p>Taxes, HOA dues, insurance signals, utilities, and likely maintenance are reviewed early.</p></article>
+            <article class="check-card"><strong>03</strong><h3>Lifestyle fit</h3><p>Commute routes, light, storage, outdoor space, schools, and neighborhood rhythm are weighed together.</p></article>
+            <article class="check-card"><strong>04</strong><h3>Offer readiness</h3><p>Inspection risk, appraisal support, and likely negotiation pressure are prepared before you write.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="tour-cta">
+        <div class="section-inner tour-panel">
+          <div>
+            <span class="eyebrow">Ready to compare homes?</span>
+            <h2>Build a smarter tour route with a Stackly advisor.</h2>
+            <p>Tell us what matters most, and we will group homes by commute, lifestyle fit, pricing strength, and likely negotiation room.</p>
+          </div>
+          <a class="primary" href="login.html">Plan my tour</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-about">
+      <img class="footer-brand" src="../assets/Stackly_logo.png" alt="Stackly" />
+      <p>Real estate guidance for buyers, sellers, investors, and families planning their next move.</p>
+      <a class="footer-location" href="Not found.html">122 Market Street, Austin, TX</a>
+      <div class="footer-social" aria-label="Social links">
+        <a href="Not found.html" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3c-3 0-5 2-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9c0-.6.4-1 1-1Z"></path></svg></a>
+        <a href="Not found.html" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"></rect><path d="M16.5 7.5h.01"></path><circle cx="12" cy="12" r="3.5"></circle></svg></a>
+        <a href="Not found.html" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M6 9v11"></path><path d="M6 5v.01"></path><path d="M10 20v-7a4 4 0 0 1 8 0v7"></path></svg></a>
+        <a href="Not found.html" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22 12s0-3.5-.5-5a3 3 0 0 0-2-2C17.9 4.5 12 4.5 12 4.5s-5.9 0-7.5.5a3 3 0 0 0-2 2C2 8.5 2 12 2 12s0 3.5.5 5a3 3 0 0 0 2 2c1.6.5 7.5.5 7.5.5s5.9 0 7.5-.5a3 3 0 0 0 2-2c.5-1.5.5-5 .5-5Z"></path><path d="m10 9 5 3-5 3Z"></path></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <a href="index.html">Home</a>
+      <a href="listings.html">Featured listings</a>
+      <a href="neighborhoods.html">Neighborhoods</a>
+      <a href="agents.html">Agents</a>
+      <a href="login.html">Client login</a>
+    </div>
+    <div>
+      <h4>Services</h4>
+      <a href="services.html">Buy a home</a>
+      <a href="index.html#valuation">Sell a home</a>
+      <a href="services.html">Invest</a>
+      <a href="services.html">Relocation planning</a>
+      <a href="listings.html">Private tours</a>
+    </div>
+    <div class="footer-support">
+      <h4>Contact &amp; Support</h4>
+      <a href="tel:+15550148800">(555) 014-8800</a>
+      <a href="mailto:hello@stacklyhomes.com">hello@stacklyhomes.com</a>
+      <div class="support-hours" aria-label="Real estate support hours">
+        <div><strong>Consultations</strong><span>24 Hours</span></div>
+        <div><strong>Open Tours</strong><span>Sat - Sun</span></div>
+        <div><strong>Closing Desk</strong><span>Mon - Fri</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Stackly Real Estate. All rights reserved.</span>
+    <div>
+      <a href="Not found.html">Terms &amp; Conditions</a>
+      <a href="Not found.html">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <script src="../js/main.js"></script>
+</body>
+</html>

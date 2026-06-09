@@ -3,33 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Forgot Password | Stackly Real Estate</title>
+  <title>Create Account | Stackly Real Estate</title>
   <link rel="stylesheet" href="../css/styles.css" />
 </head>
 <body>
   <div class="page">
     <header class="site-header" aria-label="Primary navigation">
       <a class="brand" href="index.html"><img class="brand-logo" src="../assets/Stackly_logo.png" alt="Stackly" /></a>
-      <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"><svg class="menu-icon" viewBox="0 0 24 24"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg><svg class="close-icon" viewBox="0 0 24 24" hidden><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
-      <div class="nav-menu"><nav class="nav-links"><a href="index.html">Home</a><a href="listings.html">Listings</a><a href="services.html">Services</a><a href="neighborhoods.html">Neighborhoods</a><a href="agents.html">Agents</a></nav><div class="nav-actions"><a class="primary" href="login.html">Sign in</a></div></div>
+      <button class="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+        <svg class="menu-icon" viewBox="0 0 24 24"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
+        <svg class="close-icon" viewBox="0 0 24 24" hidden><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+      </button>
+      <div class="nav-menu">
+        <nav class="nav-links"><a href="index.html">Home</a><a href="listings.html">Listings</a><a href="services.html">Services</a><a href="neighborhoods.html">Neighborhoods</a><a href="agents.html">Agents</a></nav>
+        <div class="nav-actions"><a class="primary" href="login.html">Sign in</a></div>
+      </div>
     </header>
 
     <main>
       <section class="auth-section">
         <div class="section-inner auth-layout">
-          <div class="auth-media"><img src="../assets/valuation-home.webp" alt="Bright residential exterior" /></div>
+          <div class="auth-media"><img src="../assets/valuation-home.webp" alt="Modern home exterior with warm entry lighting" /></div>
           <div>
             <div class="auth-copy">
-              <span class="eyebrow" style="color: var(--clay);">Password help</span>
-              <h1>Reset access to your Stackly workspace.</h1>
-              <p>Enter your account email and we will prepare a reset link for saved homes, tours, valuation notes, and messages.</p>
+              <span class="eyebrow" style="color: var(--clay);">Create access</span>
+              <h1>Start your Stackly client workspace.</h1>
+              <p>Create an account to save homes, compare tours, request valuations, and keep advisor notes in one place.</p>
             </div>
-            <form class="auth-card">
-              <h2>Forgot password</h2>
-              <p>We will send reset instructions to your inbox.</p>
-              <input type="email" placeholder="Email address" aria-label="Email address" />
-              <button class="primary" type="submit"><a href="Not found.html">Send reset link</a>Send Rest link</button>
-              <p>Remembered it? <a href="login.html">Return to sign in</a></p>
+            <form class="auth-card" data-redirect="login.html">
+              <h2>Create account</h2>
+              <p>After setup, we will send you back to sign in.</p>
+              <div class="auth-form-grid">
+                <input type="text" placeholder="First name" aria-label="First name" required />
+                <input type="text" placeholder="Last name" aria-label="Last name" required />
+              </div>
+              <input type="email" placeholder="Email address" aria-label="Email address" required />
+              <input type="password" placeholder="Create password" aria-label="Create password" required />
+              <label class="remember-option terms-option"><input type="checkbox" required /> <span>I agree to receive account and advisor updates.</span></label>
+              <button class="primary" type="submit">Create account</button>
+              <p>Already have an account? <a href="login.html">Return to sign in</a></p>
             </form>
           </div>
         </div>
