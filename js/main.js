@@ -71,6 +71,46 @@ document.querySelectorAll(
   });
 });
 
+document.querySelectorAll("[data-countdown]").forEach((countdown) => {
+  const deadline = Date.now() + 23 * 60 * 60 * 1000;
+  const daysEl = countdown.querySelector("[data-days]");
+  const hoursEl = countdown.querySelector("[data-hours]");
+  const minutesEl = countdown.querySelector("[data-minutes]");
+  const secondsEl = countdown.querySelector("[data-seconds]");
+  let timer;
+
+  const pad = (value) => String(value).padStart(2, "0");
+
+  const updateCountdown = () => {
+    const remaining = Math.max(0, deadline - Date.now());
+    const totalSeconds = Math.floor(remaining / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    if (daysEl) {
+      daysEl.textContent = pad(days);
+    }
+    if (hoursEl) {
+      hoursEl.textContent = pad(hours);
+    }
+    if (minutesEl) {
+      minutesEl.textContent = pad(minutes);
+    }
+    if (secondsEl) {
+      secondsEl.textContent = pad(seconds);
+    }
+
+    if (remaining <= 0) {
+      window.clearInterval(timer);
+    }
+  };
+
+  updateCountdown();
+  timer = window.setInterval(updateCountdown, 1000);
+});
+
 document.querySelectorAll("[data-home-search]").forEach((form) => {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -288,6 +328,11 @@ document.querySelectorAll("form").forEach((form) => {
         localStorage.setItem("stackly_username", capitalized);
       }
 
+      const accountType = form.querySelector('input[name="login-account-type"]:checked, input[name="account-type"]:checked');
+      if (accountType) {
+        localStorage.setItem("stackly_account_type", accountType.value);
+      }
+
       const redirectTarget = form.dataset.redirect;
       showLoginSuccess(redirectTarget);
       return;
@@ -355,9 +400,197 @@ const showLoginSuccess = (redirectTarget) => {
 
 const dashboardUserName = document.getElementById("dashboard-user-name");
 const savedDashboardUserName = localStorage.getItem("stackly_username") || "Username";
+const savedDashboardAccountType = localStorage.getItem("stackly_account_type") || "buyer";
 
 if (dashboardUserName) {
   dashboardUserName.textContent = savedDashboardUserName;
+}
+
+const dashboardProfiles = {
+  buyer: {
+    title: "Buyer Dashboard",
+    intro: "Buyer workspace",
+    nav: {
+      saved: "Saved Homes",
+      tours: "Tours",
+    },
+    stats: [
+      ["Next tour", "Lakeview Modern - Jun 11"],
+      ["Saved homes", "8 properties active"],
+      ["Offer packet", "2 documents pending"],
+      ["Pre-approval", "$1.35M verified"],
+    ],
+    firstPanel: {
+      title: "Upcoming Tours",
+      rows: [
+        ["green", "Lakeview Modern Residence", "Austin, TX - Jun 11, 10:30 AM", "Confirmed", ""],
+        ["red", "Garden District Townhome", "Charlotte, NC - Jun 14, 2:00 PM", "Pending", "pending"],
+        ["gold", "Canyon Ridge Estate", "Scottsdale, AZ - Jun 18, 7:30 AM", "Confirmed", ""],
+      ],
+    },
+    market: {
+      title: "Market Summary",
+      rows: [
+        ["Austin median price", "$742K", "82%", "#0f846b"],
+        ["Buyer competition", "Moderate", "58%", "#c69a2d"],
+        ["Inventory movement", "18 days", "76%", "#0f846b"],
+        ["Offer readiness", "Strong", "88%", "#1d5da8"],
+      ],
+    },
+    properties: {
+      title: "Priority Properties",
+      link: "View listings",
+      rows: [
+        ["../assets/listing-lakeview.webp", "Lakeview Modern Residence living room", "Lakeview Modern Residence", "$1,245,000 - 4 bed - Austin, TX"],
+        ["../assets/listing-garden.webp", "Garden District Townhome kitchen", "Garden District Townhome", "$875,000 - 3 bed - Charlotte, NC"],
+        ["../assets/listing-canyon.webp", "Canyon Ridge Estate exterior", "Canyon Ridge Estate", "$2,390,000 - 5 bed - Scottsdale, AZ"],
+      ],
+    },
+  },
+  seller: {
+    title: "Seller Dashboard",
+    intro: "Seller workspace",
+    nav: {
+      saved: "My Listing",
+      tours: "Showings",
+    },
+    stats: [
+      ["Next showing", "Canyon Ridge - Jun 12"],
+      ["Active listing", "920 Mesa Point live"],
+      ["Seller packet", "3 documents pending"],
+      ["Target value", "$2.39M strategy"],
+    ],
+    firstPanel: {
+      title: "Showing Schedule",
+      rows: [
+        ["green", "Private buyer tour", "Canyon Ridge Estate - Jun 12, 11:00 AM", "Confirmed", ""],
+        ["gold", "Broker preview", "Pricing feedback session - Jun 13, 4:30 PM", "Scheduled", ""],
+        ["red", "Inspection window", "Awaiting buyer confirmation", "Pending", "pending"],
+      ],
+    },
+    market: {
+      title: "Seller Market Summary",
+      rows: [
+        ["Comparable list range", "$2.25M - $2.45M", "84%", "#0f846b"],
+        ["Buyer demand", "Strong", "72%", "#0f846b"],
+        ["Days-on-market target", "14 days", "68%", "#c69a2d"],
+        ["Pricing confidence", "High", "90%", "#1d5da8"],
+      ],
+    },
+    properties: {
+      title: "Listing Priorities",
+      link: "View services",
+      rows: [
+        ["../assets/listing-canyon.webp", "Canyon Ridge Estate exterior", "Canyon Ridge Estate", "Photography, staging, and offer strategy active"],
+        ["../assets/service-advisory.webp", "Advisor reviewing a home", "Pricing Review", "Comparable sales and timing notes ready"],
+        ["../assets/valuation-home.webp", "Home valuation detail", "Valuation Package", "Seller disclosure and market packet in progress"],
+      ],
+    },
+  },
+};
+
+const setPanelHeading = (heading, text) => {
+  if (!heading) {
+    return;
+  }
+
+  const icon = heading.querySelector("svg");
+  heading.textContent = "";
+  if (icon) {
+    heading.append(icon);
+  }
+  heading.append(text);
+};
+
+const applyDashboardProfile = () => {
+  const profile = dashboardProfiles[savedDashboardAccountType] || dashboardProfiles.buyer;
+  document.body.dataset.accountType = savedDashboardAccountType;
+
+  const topbarTitle = document.querySelector(".dashboard-topbar h1");
+  const topbarCopy = document.querySelector(".dashboard-topbar p");
+
+  if (topbarTitle) {
+    topbarTitle.textContent = profile.title;
+  }
+
+  if (topbarCopy) {
+    topbarCopy.innerHTML = `Welcome back, <strong id="dashboard-user-name">${savedDashboardUserName}</strong> - ${profile.intro}`;
+  }
+
+  const navLinks = Array.from(document.querySelectorAll(".dashboard-nav a"));
+  const savedNav = navLinks.find((link) => link.getAttribute("href") === "dashboard-saved-homes.html");
+  const toursNav = navLinks.find((link) => link.getAttribute("href") === "dashboard-tours.html");
+  savedNav?.querySelector("span") && (savedNav.querySelector("span").textContent = profile.nav.saved);
+  toursNav?.querySelector("span") && (toursNav.querySelector("span").textContent = profile.nav.tours);
+
+  document.querySelectorAll(".dashboard-stats .dash-stat").forEach((stat, index) => {
+    const data = profile.stats[index];
+    if (!data) {
+      return;
+    }
+
+    const label = stat.querySelector("span");
+    const value = stat.querySelector("strong");
+    if (label) {
+      label.textContent = data[0];
+    }
+    if (value) {
+      value.textContent = data[1];
+    }
+  });
+
+  const firstPanel = document.querySelector(".tours-panel");
+  setPanelHeading(firstPanel?.querySelector("h2"), profile.firstPanel.title);
+  const firstList = firstPanel?.querySelector(".dash-list");
+  if (firstList) {
+    firstList.innerHTML = profile.firstPanel.rows.map(([dot, title, copy, status, statusClass]) => `
+      <div class="dash-row"><span class="dot ${dot}"></span><div><strong>${title}</strong><p>${copy}</p></div><em class="${statusClass}">${status}</em></div>
+    `).join("");
+  }
+
+  const marketPanel = document.querySelector(".market-panel");
+  setPanelHeading(marketPanel?.querySelector("h2"), profile.market.title);
+  if (marketPanel) {
+    marketPanel.querySelectorAll(".market-meter").forEach((meter, index) => {
+      const data = profile.market.rows[index];
+      if (!data) {
+        return;
+      }
+
+      const label = meter.querySelector("span");
+      const value = meter.querySelector("strong");
+      const bar = meter.querySelector("i");
+      if (label) {
+        label.textContent = data[0];
+      }
+      if (value) {
+        value.textContent = data[1];
+      }
+      if (bar) {
+        bar.style.setProperty("--value", data[2]);
+        bar.style.setProperty("--bar", data[3]);
+      }
+    });
+  }
+
+  const propertyPanel = document.querySelector(".property-panel");
+  setPanelHeading(propertyPanel?.querySelector("h2"), profile.properties.title);
+  const propertyLink = propertyPanel?.querySelector(".dashboard-section-head a");
+  if (propertyLink) {
+    propertyLink.textContent = profile.properties.link;
+    propertyLink.href = savedDashboardAccountType === "seller" ? "services.html" : "listings.html";
+  }
+
+  const propertyGrid = propertyPanel?.querySelector(".dash-property-grid");
+  if (propertyGrid) {
+    propertyGrid.innerHTML = profile.properties.rows.map(([src, alt, title, copy]) => `
+      <article><img src="${src}" alt="${alt}" /><div><strong>${title}</strong><p>${copy}</p></div></article>
+    `).join("");
+  }
+};
+
+if (document.querySelector(".dashboard-stats")) {
+  applyDashboardProfile();
 }
 
 document.querySelectorAll(".sidebar-note").forEach((note) => {
@@ -428,6 +661,7 @@ if (logoutTriggers.length) {
 
   logoutConfirm?.addEventListener("click", () => {
     localStorage.removeItem("stackly_username");
+    localStorage.removeItem("stackly_account_type");
     window.location.href = "login.html";
   });
 
@@ -444,25 +678,84 @@ if (logoutTriggers.length) {
   });
 }
 
-// Intersection Observer for scroll animations
+// Shared page animation and letter reveals
+const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+const animatedSelectors = [
+  ".section-head",
+  ".listing-card",
+  ".neighborhood-card",
+  ".service-card",
+  ".info-card",
+  ".agent-card",
+  ".dash-stat",
+  ".dash-panel",
+  ".dash-property-grid article",
+  ".auth-card",
+  ".auth-media",
+  ".signup-promo",
+  ".valuation-panel > *",
+  ".footer-inner > *",
+  ".footer-bottom",
+];
+
+document.querySelectorAll(animatedSelectors.join(",")).forEach((element, index) => {
+  if (!element.classList.contains("fade-in-up") && !element.classList.contains("fade-in-down") && !element.classList.contains("roll-in")) {
+    element.classList.add("fade-in-up");
+  }
+
+  const delay = Math.min(index % 6, 5) * 45;
+  if (!element.style.animationDelay) {
+    element.style.setProperty("--reveal-delay", `${delay}ms`);
+  }
+});
+
+document.querySelectorAll("h1, .hero h2, .auth-copy h1, .dashboard-topbar h1").forEach((heading) => {
+  if (heading.dataset.lettersReady || heading.querySelector("svg")) {
+    return;
+  }
+
+  const text = heading.textContent.trim();
+  if (!text) {
+    return;
+  }
+
+  heading.dataset.lettersReady = "true";
+  heading.setAttribute("aria-label", text);
+  heading.textContent = "";
+  heading.classList.add("letter-reveal");
+
+  Array.from(text).forEach((char, index) => {
+    const span = document.createElement("span");
+    span.textContent = char === " " ? "\u00a0" : char;
+    span.style.setProperty("--letter-delay", `${Math.min(index, 42) * 24}ms`);
+    heading.appendChild(span);
+  });
+});
+
 const fadeObserverOptions = {
   root: null,
-  rootMargin: '0px',
-  threshold: 0.15
+  rootMargin: "0px 0px -8% 0px",
+  threshold: 0.14,
 };
 
-const fadeObserver = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
+if (motionQuery.matches) {
+  document.querySelectorAll(".fade-in-up, .fade-in-down, .roll-in, .letter-reveal").forEach((element) => {
+    element.classList.add("visible");
   });
-}, fadeObserverOptions);
+} else {
+  const fadeObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, fadeObserverOptions);
 
-document.querySelectorAll('.fade-in-up, .fade-in-down, .roll-in').forEach(element => {
-  fadeObserver.observe(element);
-});
+  document.querySelectorAll(".fade-in-up, .fade-in-down, .roll-in, .letter-reveal").forEach((element) => {
+    fadeObserver.observe(element);
+  });
+}
 
 document.querySelectorAll("[data-slideshow]").forEach((slideshow) => {
   const slides = Array.from(slideshow.querySelectorAll(".showcase-slide"));
@@ -526,35 +819,48 @@ document.querySelectorAll("[data-slideshow]").forEach((slideshow) => {
 });
 
 // Hero Background Slideshow
-const heroSection = document.querySelector(".hero");
-if (heroSection) {
+document.querySelectorAll(".hero").forEach((heroSection) => {
+  if (heroSection.querySelector(".hero-bg-slideshow")) {
+    return;
+  }
+
   heroSection.classList.add("has-slideshow");
 
+  const declaredImage = getComputedStyle(heroSection).getPropertyValue("--hero-image").trim().replace(/^url\(["']?|["']?\)$/g, "");
   const heroSlides = [
+    declaredImage,
     "../assets/listing-lakeview.webp",
     "../assets/listing-garden.webp",
-    "../assets/listing-canyon.webp"
-  ];
+    "../assets/listing-canyon.webp",
+    "../assets/neighborhood-harbor.webp",
+  ].filter(Boolean);
 
+  const uniqueSlides = Array.from(new Set(heroSlides));
   const heroSlideshowContainer = document.createElement("div");
   heroSlideshowContainer.className = "hero-bg-slideshow";
 
-  heroSlides.forEach((src, index) => {
+  uniqueSlides.forEach((src, index) => {
     const slide = document.createElement("div");
     slide.className = "hero-bg-slide";
-    if (index === 0) slide.classList.add("is-active");
+    if (index === 0) {
+      slide.classList.add("is-active");
+    }
     slide.style.backgroundImage = `url('${src}')`;
     heroSlideshowContainer.appendChild(slide);
   });
 
   heroSection.prepend(heroSlideshowContainer);
 
-  let currentHeroIndex = 0;
-  const slideElements = heroSlideshowContainer.querySelectorAll(".hero-bg-slide");
+  if (uniqueSlides.length < 2 || motionQuery.matches) {
+    return;
+  }
 
-  setInterval(() => {
+  let currentHeroIndex = 0;
+  const slideElements = Array.from(heroSlideshowContainer.querySelectorAll(".hero-bg-slide"));
+
+  window.setInterval(() => {
     slideElements[currentHeroIndex].classList.remove("is-active");
     currentHeroIndex = (currentHeroIndex + 1) % slideElements.length;
     slideElements[currentHeroIndex].classList.add("is-active");
-  }, 2000);
-}
+  }, 3600);
+});
