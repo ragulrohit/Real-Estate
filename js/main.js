@@ -306,6 +306,30 @@ document.querySelectorAll(".google-btn").forEach((button) => {
   });
 });
 
+document.querySelectorAll("[data-password-toggle]").forEach((button) => {
+  const field = button.closest(".password-field");
+  const input = field?.querySelector("[data-password-input]");
+  const eyeIcon = button.querySelector(".eye-icon");
+  const eyeOffIcon = button.querySelector(".eye-off-icon");
+
+  if (!input) {
+    return;
+  }
+
+  button.addEventListener("click", () => {
+    const isPassword = input.type === "password";
+
+    input.type = isPassword ? "text" : "password";
+    button.setAttribute("aria-label", isPassword ? "Hide password" : "Show password");
+    button.classList.toggle("is-visible", isPassword);
+
+    if (eyeIcon && eyeOffIcon) {
+      eyeIcon.hidden = false;
+      eyeOffIcon.hidden = false;
+    }
+  });
+});
+
 const showLoginSuccess = (redirectTarget) => {
   const userName = localStorage.getItem("stackly_username") || "Client";
   const popup = document.createElement("div");

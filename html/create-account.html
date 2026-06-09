@@ -16,29 +16,55 @@
       </button>
       <div class="nav-menu">
         <nav class="nav-links"><a href="index.html">Home</a><a href="listings.html">Listings</a><a href="services.html">Services</a><a href="neighborhoods.html">Neighborhoods</a><a href="agents.html">Agents</a></nav>
-        <div class="nav-actions"><a class="primary" href="login.html">Sign in</a></div>
+        <div class="nav-actions"><a class="primary" href="create-account.html">Sign up</a><a class="primary" href="login.html">Sign in</a></div>
       </div>
     </header>
 
     <main>
       <section class="auth-section">
-        <div class="section-inner auth-layout">
-          <div class="auth-media"><img src="../assets/valuation-home.webp" alt="Modern home exterior with warm entry lighting" /></div>
+        <div class="section-inner auth-layout signup-layout">
+          <div class="signup-promo">
+            <img class="signup-logo" src="../assets/Stackly_logo.png" alt="Stackly" />
+            <h1>Join the Stackly Real Estate Network</h1>
+            <p>Create your account and unlock saved homes, private tour planning, valuation updates, and advisor support.</p>
+            <div class="signup-benefits">
+              <div><span class="icon"><svg viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M5 21V8l7-5 7 5v13"></path><path d="M9 21v-8h6v8"></path></svg></span><strong>Personal property dashboard</strong></div>
+              <div><span class="icon"><svg viewBox="0 0 24 24"><path d="M8 2v4"></path><path d="M16 2v4"></path><path d="M3 10h18"></path><path d="M5 4h14v17H5z"></path></svg></span><strong>Private tour scheduling</strong></div>
+              <div><span class="icon"><svg viewBox="0 0 24 24"><path d="M4 19V5"></path><path d="M4 19h16"></path><path d="m7 15 4-4 3 3 5-7"></path></svg></span><strong>Market and valuation alerts</strong></div>
+              <div><span class="icon"><svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"></path></svg></span><strong>Advisor message support</strong></div>
+            </div>
+          </div>
           <div>
             <div class="auth-copy">
-              <span class="eyebrow" style="color: var(--clay);">Create access</span>
-              <h1>Start your Stackly client workspace.</h1>
-              <p>Create an account to save homes, compare tours, request valuations, and keep advisor notes in one place.</p>
+              <span class="eyebrow" style="color: var(--clay);">Get started - free</span>
+              <h1>Create your real estate account.</h1>
+              <p>Already have an account? <a href="login.html">Sign in here</a></p>
             </div>
             <form class="auth-card" data-redirect="login.html">
-              <h2>Create account</h2>
-              <p>After setup, we will send you back to sign in.</p>
-              <div class="auth-form-grid">
-                <input type="text" placeholder="First name" aria-label="First name" required />
-                <input type="text" placeholder="Last name" aria-label="Last name" required />
+              <h2>Sign up</h2>
+              <p>Choose how you plan to use Stackly.</p>
+              <div class="account-type-grid" aria-label="Account type">
+                <label>
+                  <input type="radio" name="account-type" value="buyer" checked />
+                  <span><svg viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M5 21V8l7-5 7 5v13"></path><path d="M9 21v-7h6v7"></path></svg><strong>Buyer</strong><small>Save homes and schedule tours</small></span>
+                </label>
+                <label>
+                  <input type="radio" name="account-type" value="seller" />
+                  <span><svg viewBox="0 0 24 24"><path d="M4 19V5"></path><path d="M4 19h16"></path><path d="m7 15 4-4 3 3 5-7"></path></svg><strong>Seller</strong><small>Request valuations and listing help</small></span>
+                </label>
               </div>
-              <input type="email" placeholder="Email address" aria-label="Email address" required />
-              <input type="password" placeholder="Create password" aria-label="Create password" required />
+              <div class="auth-form-grid">
+                <input type="text" placeholder="Full name" aria-label="Full name" data-username required />
+                <input type="tel" placeholder="Phone number" aria-label="Phone number" required />
+              </div>
+              <input type="email" placeholder="Work / personal email" aria-label="Work or personal email" required />
+              <div class="password-field">
+                <input type="password" placeholder="Create a strong password" aria-label="Create password" data-password-input required />
+                <button class="password-toggle" type="button" aria-label="Show password" data-password-toggle>
+                  <svg class="eye-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                  <svg class="eye-off-icon" viewBox="0 0 24 24" aria-hidden="true" hidden><path d="m3 3 18 18"></path><path d="M10.6 10.6A2 2 0 0 0 12 14a2 2 0 0 0 1.4-.6"></path><path d="M9.9 5.2A10.7 10.7 0 0 1 12 5c6.5 0 10 7 10 7a17.8 17.8 0 0 1-3.1 4.1"></path><path d="M6.6 6.6C3.6 8.6 2 12 2 12s3.5 7 10 7c1.4 0 2.6-.3 3.7-.8"></path></svg>
+                </button>
+              </div>
               <label class="remember-option terms-option"><input type="checkbox" required /> <span>I agree to receive account and advisor updates.</span></label>
               <button class="primary" type="submit">Create account</button>
               <p>Already have an account? <a href="login.html">Return to sign in</a></p>
