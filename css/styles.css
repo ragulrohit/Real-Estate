@@ -2049,6 +2049,20 @@ h1 {
   font-size: 0.94rem;
 }
 
+.dashboard-account-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  margin-top: 10px;
+  padding: 0 12px;
+  color: #0d7e69;
+  background: #e8f3f4;
+  border: 1px solid #cfe0ea;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 850;
+}
+
 .dashboard-avatar {
   display: grid;
   place-items: center;

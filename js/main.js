@@ -558,6 +558,7 @@ const applyDashboardProfile = () => {
 
   const topbarTitle = document.querySelector(".dashboard-topbar h1");
   const topbarCopy = document.querySelector(".dashboard-topbar p");
+  const accountLabel = document.getElementById("dashboard-account-label");
 
   if (topbarTitle) {
     topbarTitle.textContent = profile.title;
@@ -565,6 +566,10 @@ const applyDashboardProfile = () => {
 
   if (topbarCopy) {
     topbarCopy.innerHTML = `Welcome back, <strong id="dashboard-user-name">${savedDashboardUserName}</strong> - ${profile.intro}`;
+  }
+
+  if (accountLabel) {
+    accountLabel.textContent = profile.title;
   }
 
   const navLinks = Array.from(document.querySelectorAll(".dashboard-nav a"));
@@ -639,7 +644,7 @@ const applyDashboardProfile = () => {
   }
 };
 
-if (document.querySelector(".dashboard-stats")) {
+if (document.querySelector(".dashboard-main")) {
   applyDashboardProfile();
 }
 
