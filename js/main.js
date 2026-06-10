@@ -291,33 +291,55 @@ document.querySelectorAll("form").forEach((form) => {
     event.preventDefault();
 
     if (form.classList.contains("auth-card")) {
+      const setFormMessage = (message) => {
+        let messageElement = form.querySelector(".form-message");
+
+        if (!messageElement) {
+          messageElement = document.createElement("p");
+          messageElement.className = "form-message";
+          messageElement.setAttribute("role", "status");
+          messageElement.setAttribute("aria-live", "polite");
+          form.insertBefore(messageElement, form.querySelector('button[type="submit"]'));
+        }
+
+        messageElement.textContent = message;
+      };
+      const clearFormMessage = () => {
+        form.querySelector(".form-message")?.remove();
+      };
       const username = form.querySelector("[data-username]");
       const email = form.querySelector('input[type="email"]');
       const password = form.querySelector('input[type="password"]');
       const checkbox = form.querySelector('input[type="checkbox"]');
 
       if (username && username.value.trim() === "") {
-        alert("Please enter your username.");
+        setFormMessage("Please enter your username.");
         username.focus();
         return;
       }
 
       if (email && email.value.trim() === "") {
-        alert("Please enter your email address.");
+        setFormMessage("Please enter your email address.");
         email.focus();
         return;
       }
 
       if (password && password.value.trim() === "") {
-        alert("Please enter your password.");
+        setFormMessage("Please enter your password.");
         password.focus();
         return;
       }
 
       if (checkbox && !checkbox.checked) {
-        alert("Please check Remember Me.");
+        setFormMessage("Please check Remember Me.");
         checkbox.focus();
         return;
+      }
+
+      clearFormMessage();
+
+      if (email && email.value.trim() !== "") {
+        localStorage.setItem("stackly_email", email.value.trim());
       }
 
       if (username && username.value.trim() !== "") {
@@ -395,11 +417,13 @@ const showLoginSuccess = (redirectTarget) => {
     if (redirectTarget) {
       window.location.href = redirectTarget;
     }
-  }, 1800);
+  }, 1000);
 };
 
 const dashboardUserName = document.getElementById("dashboard-user-name");
 const savedDashboardUserName = localStorage.getItem("stackly_username") || "Username";
+const savedDashboardEmail = localStorage.getItem("stackly_email");
+const savedDashboardSidebarName = savedDashboardEmail || savedDashboardUserName;
 const savedDashboardAccountType = localStorage.getItem("stackly_account_type") || "buyer";
 
 if (dashboardUserName) {
@@ -598,7 +622,7 @@ document.querySelectorAll(".sidebar-note").forEach((note) => {
   const status = note.querySelector("span");
 
   if (name) {
-    name.textContent = savedDashboardUserName;
+    name.textContent = savedDashboardSidebarName;
   }
 
   if (status) {
@@ -660,6 +684,7 @@ if (logoutTriggers.length) {
   });
 
   logoutConfirm?.addEventListener("click", () => {
+    localStorage.removeItem("stackly_email");
     localStorage.removeItem("stackly_username");
     localStorage.removeItem("stackly_account_type");
     window.location.href = "login.html";
