@@ -342,6 +342,11 @@ document.querySelectorAll("form").forEach((form) => {
         localStorage.setItem("stackly_email", email.value.trim());
       }
 
+      if (form.dataset.resetPassword === "true") {
+        showPasswordResetSuccess();
+        return;
+      }
+
       if (username && username.value.trim() !== "") {
         localStorage.setItem("stackly_username", username.value.trim());
       } else if (email && email.value.trim() !== "") {
@@ -396,6 +401,27 @@ document.querySelectorAll("[data-password-toggle]").forEach((button) => {
     }
   });
 });
+
+const showPasswordResetSuccess = () => {
+  const popup = document.createElement("div");
+  popup.className = "login-success-overlay";
+  popup.setAttribute("role", "status");
+  popup.setAttribute("aria-live", "polite");
+  popup.innerHTML = `
+    <div class="login-success-card">
+      <div class="success-burst" aria-hidden="true">✓</div>
+      <h2>Reset link ready!</h2>
+      <p>Please check your email for password reset instructions.</p>
+      <button class="reset-go-back" type="button">Go back</button>
+    </div>
+  `;
+
+  document.body.appendChild(popup);
+
+  popup.querySelector(".reset-go-back")?.addEventListener("click", () => {
+    history.back();
+  });
+};
 
 const showLoginSuccess = (redirectTarget) => {
   const userName = localStorage.getItem("stackly_username") || "Client";
